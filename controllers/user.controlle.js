@@ -31,7 +31,7 @@ const registerUser = async (req, res) => {
     // Generate a verification token
     const token = jwt.sign(
       { userId: user._id },
-      "Shiva123Developer",
+      process.env.JWT_SECRET,
       { expiresIn: "5m" }
     );
     user.verificationToken = token;
@@ -64,7 +64,7 @@ const verifyEmail = async (req, res) => {
     // Verify the token without checking the expiration by setting `ignoreExpiration` to `true`
     const decodedToken = jwt.verify(
       token,
-      "Shiva123Developer",
+      process.env.JWT_SECRET,
       { ignoreExpiration: true }
     );
     // Check if the verification token has expired

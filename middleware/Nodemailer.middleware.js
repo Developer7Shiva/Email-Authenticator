@@ -14,8 +14,8 @@ const sendVerificationEmail = async (email, token) => {
     host: "smtp.ethereal.email",
     port: 587,
     auth: {
-      user: "fanny55@ethereal.email",
-      pass: "f11UNwXANFNHHsB3xS",
+      user: process.env.EMAIL_ID,
+      pass: process.env.EMAIL_PASS,
     },
   });
 
